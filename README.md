@@ -1,2 +1,2 @@
 # XCracker
-Watch purna here!
+Are you howny~? Then this is for ya~!
